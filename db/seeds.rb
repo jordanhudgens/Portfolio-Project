@@ -6,13 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+3.times do |topic|
+  Topic.create!(title: "Topic #{topic}")
+end
+puts "3 Topics created"
+
 10.times do |blog|   
   Blog.create!(       
     title: "My Blog Post #{blog}",       
     body: "Lorem ipsum dolor sit amet, gubergren conceptam an quo. Ius hinc commune
           electram te, nullam graece apeirian eu has. Pro quas illum admodum ut. Quod
           impetus tamquam id mel. Mei id noster oblique nusquam, pro eius autem commodo
-          ut."     
+          ut.",
+    topic_id: Topic.last.id
   ) 
 end
 
@@ -28,10 +34,23 @@ end
 puts "5 skills created"
 
 
-9.times do |portfolio_item|
+7.times do |portfolio_item|
   Portfolio.create!(
     title: "Portfolio #{portfolio_item}",
-    subtitle: "My Portfolio #{portfolio_item}",      
+    subtitle: "Ruby on Rails",      
+    body: "Lorem ipsum dolor sit amet, gubergren conceptam an quo. Ius hinc commune
+          electram te, nullam graece apeirian eu has. Pro quas illum admodum ut. Quod
+          impetus tamquam id mel. Mei id noster oblique nusquam, pro eius autem commodo
+          ut.",
+    main_image: "http://via.placeholder.com/600x400",
+    thumb_image: "http://via.placeholder.com/350x200"
+  )
+end
+
+2.times do |portfolio_item|
+  Portfolio.create!(
+    title: "Portfolio #{portfolio_item}",
+    subtitle: "Angular",      
     body: "Lorem ipsum dolor sit amet, gubergren conceptam an quo. Ius hinc commune
           electram te, nullam graece apeirian eu has. Pro quas illum admodum ut. Quod
           impetus tamquam id mel. Mei id noster oblique nusquam, pro eius autem commodo
