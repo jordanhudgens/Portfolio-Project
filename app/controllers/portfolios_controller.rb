@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   
   def index
     @portfolio_items = Portfolio.all
@@ -15,7 +15,6 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio_items = Portfolio.find(params[:id])
   end
 
   def create
@@ -31,11 +30,9 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_items = Portfolio.find(params[:id])
   end
 
   def update
-    @portfolio_items = Portfolio.find(params[:id])
 
     respond_to do |format|
       if @portfolio_items.update(portfolio_params)
@@ -47,7 +44,6 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @portfolio_items = Portfolio.find(params[:id])
     @portfolio_items.destroy
     respond_to do |format|
       format.html{redirect_to portfolios_url, notice: "Portfolio was removed."}
@@ -62,6 +58,10 @@ class PortfoliosController < ApplicationController
                                       :body, 
                                       technologies_attributes: [:name]
                                       )
+  end
+
+  def set_portfolio
+    @portfolio_items = Portfolio.find(params[:id])
   end
 
 end
