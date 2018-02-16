@@ -15,4 +15,8 @@ module ApplicationHelper
       content_tag(:p, "Thanks for visiting me from #{session[:source]}.", class: "source-greeting")
      end 
   end
+
+  def copyright name, msg
+      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+  end
 end
