@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require popper
+//= require popover_config
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
